@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_switch/flutter_switch.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -6,7 +8,9 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  bool play = false;
+  bool play1 = false;
+  bool play2 = false;
+  bool play3 = false;
 
   @override
   Widget build(BuildContext context) {
@@ -26,18 +30,47 @@ class _HomeScreenState extends State<HomeScreen> {
         backgroundColor: Colors.transparent,
         body: Stack(
           children: [
+            Positioned(
+                top: -120,
+                left: 110,
+                child: SvgPicture.asset('images/ground.svg',
+                    color: Color(0xFF999999))),
+            Positioned(
+                top: -10,
+                right: 40,
+                child: SvgPicture.asset(
+                  'images/moon.svg',
+                )),
+            Positioned(
+                top: -30,
+                right: 120,
+                child: SvgPicture.asset(
+                  'images/lamb.svg',
+                )),
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: size.width * 0.05),
+              padding: EdgeInsets.symmetric(horizontal: size.width * 0.04),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  SizedBox(height: size.height * 0.1),
+                  SizedBox(height: size.height * 0.12),
                   Text("Ramadan\nKareem",
                       style: TextStyle(
                           color: Colors.black,
-                          fontSize: size.width * 0.125,
+                          fontSize: size.width * 0.1,
                           fontWeight: FontWeight.bold)),
-                  SizedBox(height: size.height * 0.03),
+                  SizedBox(height: size.height * 0.005),
+                  Text("Friday, 8 may",
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontSize: size.width * 0.04,
+                          fontWeight: FontWeight.bold)),
+                  SizedBox(height: size.height * 0.005),
+                  Text("13 Ramadan 14:40 AM",
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontSize: size.width * 0.04,
+                          fontWeight: FontWeight.bold)),
+                  SizedBox(height: size.height * 0.04),
                   Row(
                     children: [
                       Expanded(
@@ -45,10 +78,9 @@ class _HomeScreenState extends State<HomeScreen> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Container(
-                              width: size.width * 0.45,
                               padding: EdgeInsets.symmetric(
                                   horizontal: size.width * 0.02,
-                                  vertical: size.height * 0.02),
+                                  vertical: size.height * 0.015),
                               decoration: BoxDecoration(
                                   color: Colors.white,
                                   borderRadius: BorderRadius.circular(40.0)),
@@ -63,14 +95,18 @@ class _HomeScreenState extends State<HomeScreen> {
                                       children: [
                                         Icon(Icons.wb_twighlight,
                                             color: Colors.black),
-                                        Switch(
+                                        FlutterSwitch(
+                                          width: size.width * 0.13,
+                                          height: size.height * 0.035,
                                           activeColor: Colors.black,
-                                          inactiveTrackColor: Colors.grey,
-                                          onChanged: (bool whenChanged) {
-                                            play = whenChanged;
+                                          inactiveColor: Colors.grey.shade200,
+                                          value: play1,
+                                          onToggle: (value) {
+                                            setState(() {
+                                              play1 = value;
+                                            });
                                           },
-                                          value: play,
-                                        )
+                                        ),
                                       ],
                                     ),
                                   ),
@@ -92,10 +128,9 @@ class _HomeScreenState extends State<HomeScreen> {
                             ),
                             SizedBox(height: size.height * 0.03),
                             Container(
-                              width: size.width * 0.45,
                               padding: EdgeInsets.symmetric(
                                   horizontal: size.width * 0.02,
-                                  vertical: size.height * 0.02),
+                                  vertical: size.height * 0.015),
                               decoration: BoxDecoration(
                                   color: Colors.white,
                                   borderRadius: BorderRadius.circular(40.0)),
@@ -110,18 +145,22 @@ class _HomeScreenState extends State<HomeScreen> {
                                       children: [
                                         Icon(Icons.wb_twighlight,
                                             color: Colors.black),
-                                        Switch(
+                                        FlutterSwitch(
+                                          width: size.width * 0.13,
+                                          height: size.height * 0.035,
                                           activeColor: Colors.black,
-                                          inactiveTrackColor: Colors.grey,
-                                          onChanged: (bool whenChanged) {
-                                            play = whenChanged;
+                                          inactiveColor: Colors.grey.shade200,
+                                          value: play2,
+                                          onToggle: (value) {
+                                            setState(() {
+                                              play2 = value;
+                                            });
                                           },
-                                          value: play,
-                                        )
+                                        ),
                                       ],
                                     ),
                                   ),
-                                  SizedBox(height: size.height * 0.02),
+                                  SizedBox(height: size.height * 0.05),
                                   Text("18:28",
                                       style: TextStyle(
                                           color: Colors.black,
@@ -140,10 +179,9 @@ class _HomeScreenState extends State<HomeScreen> {
                           ],
                         ),
                       ),
-                      SizedBox(width: size.width * 0.05),
+                      SizedBox(width: size.width * 0.06),
                       Expanded(
                         child: Container(
-                          width: size.width * 0.45,
                           padding: EdgeInsets.symmetric(
                               horizontal: size.width * 0.02,
                               vertical: size.height * 0.02),
@@ -162,14 +200,18 @@ class _HomeScreenState extends State<HomeScreen> {
                                   children: [
                                     Icon(Icons.wb_twighlight,
                                         color: Colors.black),
-                                    Switch(
+                                    FlutterSwitch(
+                                      width: size.width * 0.13,
+                                      height: size.height * 0.035,
                                       activeColor: Colors.black,
-                                      inactiveTrackColor: Colors.grey,
-                                      onChanged: (bool whenChanged) {
-                                        play = whenChanged;
+                                      inactiveColor: Colors.grey.shade200,
+                                      value: play3,
+                                      onToggle: (value) {
+                                        setState(() {
+                                          play3 = value;
+                                        });
                                       },
-                                      value: play,
-                                    )
+                                    ),
                                   ],
                                 ),
                               ),
@@ -225,24 +267,31 @@ class _HomeScreenState extends State<HomeScreen> {
                 ],
               ),
             ),
-            SizedBox(height: size.height * 0.02),
             Positioned(
-              bottom: -30,
-              left: 100,
-              right: 100,
-              child: CircleAvatar(
-                radius: size.width * 0.17,
-                backgroundColor: Colors.black,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Icon(Icons.arrow_forward_ios_rounded),
-                    Text("Countdown",
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: size.width * 0.05,
-                        )),
-                  ],
+              bottom: -50,
+              left: 0,
+              right: 0,
+              child: GestureDetector(
+                onTap: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context){
+                    return ;
+                  }));
+                },
+                child: CircleAvatar(
+                  radius: size.width * 0.17,
+                  backgroundColor: Colors.black,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(Icons.keyboard_arrow_up),
+                      Text("Countdown",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: size.width * 0.05,
+                          )),
+                      SizedBox(height: size.height * 0.05),
+                    ],
+                  ),
                 ),
               ),
             )
